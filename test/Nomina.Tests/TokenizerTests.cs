@@ -12,5 +12,16 @@ namespace Nomina.Tests
 
             Assert.Empty(result);
         }
+
+        [Fact]
+        public void Whitespace()
+        {
+            const string Text = "   ";
+            var result = Tokenizer.Tokenize(Text);
+
+            var r = Assert.Single(result);
+            var w = Assert.IsType<Whitespace>(r);
+            Assert.Equal(Text, w.Value);
+        }
     }
 }
