@@ -5,14 +5,22 @@ namespace Nomina.Parsers
 {
     public class AmericanEnglishNameParser : INameParser
     {
+        private delegate ReadOnlySpan<char> MapFunc(ReadOnlySpan<char> input);
+
+        private readonly Dictionary<NameFeature, MapFunc> _map;
+
         public NameCulture Culture => "en-US";
 
-        public IReadOnlyCollection<NameFeature> SupportedFeatures { get; } = new[]
+        public AmericanEnglishNameParser()
         {
-            NameFeature.FirstName,
-            NameFeature.AlternateNames,
-            NameFeature.LastName,
-        };
+            _map = new Dictionary<NameFeature, MapFunc>
+            {
+                { NameFeature.FirstName, GetFirstName },
+                { NameFeature.LastName, GetLastName },
+            };
+        }
+
+        public IReadOnlyCollection<NameFeature> SupportedFeatures => _map.Keys;
 
         public bool TryGetFeature(ReadOnlySpan<char> input, NameFeature feature, out ReadOnlySpan<char> result)
         {
@@ -22,8 +30,40 @@ namespace Nomina.Parsers
                 return true;
             }
 
-            result = default;
+            if (_map.TryGetValue(feature, out var func))
+            {
+                result = func(input);
+                return !result.IsEmpty;
+            }
+
+            result = string.Empty;
             return false;
+        }
+
+        private ReadOnlySpan<char> GetFirstName(ReadOnlySpan<char> input)
+        {
+            var e = input.Split();
+
+            if (e.MoveNext())
+            {
+                return input[e.Current];
+            }
+
+            return string.Empty;
+        }
+
+        private ReadOnlySpan<char> GetLastName(ReadOnlySpan<char> input)
+        {
+            var e = input.Split();
+            Range r = default;
+
+            while (e.MoveNext())
+            {
+                r = e.Current;
+            }
+
+            return input[r];
         }
     }
 }
+
