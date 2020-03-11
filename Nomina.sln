@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomina", "src\Nomina\Nomina.csproj", "{EF3AE747-0D78-4374-8F8E-776693477B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1235953-CF48-4CA0-9516-6A0080A86ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF3AE747-0D78-4374-8F8E-776693477B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3AE747-0D78-4374-8F8E-776693477B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3AE747-0D78-4374-8F8E-776693477B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3AE747-0D78-4374-8F8E-776693477B40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EF3AE747-0D78-4374-8F8E-776693477B40} = {A1235953-CF48-4CA0-9516-6A0080A86ECD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EFA5432-8FF6-4D5E-924B-282B1F4387C0}
+	EndGlobalSection
+EndGlobal
