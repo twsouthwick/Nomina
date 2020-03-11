@@ -1,0 +1,1 @@
+﻿en-US "{FirstName} "{Nickname}" ({MaidenName}) {AlternateNames} {LastName}"

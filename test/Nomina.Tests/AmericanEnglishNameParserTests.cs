@@ -40,6 +40,5 @@ namespace Nomina.Tests
             Assert.True(parser.TryGetFeature(name, NameFeature.LastName, out var last));
             Assert.Equal("World", last.ToString());
         }
-
     }
 }
